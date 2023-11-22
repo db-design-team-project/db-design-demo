@@ -1,8 +1,12 @@
+import MainLayout from "./components/main-layout";
+import AuthRoutes from "./utils/auth-routes";
 
 function App() {
   return (
     <>
-      ABCDEFG
+      <MainLayout>
+        <AuthRoutes />
+      </MainLayout>
     </>
   );
 }
