@@ -20,11 +20,8 @@ public class TestController : ControllerBase {
 
     [HttpGet("test")]
     public ActionResult MailAsync() {
-        var 회원들 = _dbContext.회원DbSet.FromSqlRaw("SELECT * FROM 회원").ToList();
+        var entities = _dbContext.휴가내역DbSet.FromSqlRaw("SELECT * FROM 휴가내역").ToList();
 
-        foreach (var 회원 in 회원들) {
-            System.Console.WriteLine(회원.아이디);
-        }
-        return Ok("ok~~");
+        return Ok(entities);
     }
 }

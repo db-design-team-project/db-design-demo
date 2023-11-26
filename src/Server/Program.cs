@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MainDbContext>(option => {
-    option.UseOracle(builder.Configuration.GetConnectionString("MainDbConnectionString")!);
+    option.UseOracle(builder.Configuration["MainDbConnectionString"]!);
 });
 
 var app = builder.Build();
