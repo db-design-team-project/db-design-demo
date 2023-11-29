@@ -20,7 +20,7 @@ public class TestController : ControllerBase {
 
     [HttpGet("test")]
     public ActionResult MailAsync() {
-        var entities = _dbContext.휴가내역DbSet.FromSqlRaw("SELECT * FROM 휴가내역").ToList();
+        var entities = _dbContext.휴가내역DbSet.FromSqlRaw("SELECT * FROM 휴가내역");
 
         return Ok(entities);
     }
