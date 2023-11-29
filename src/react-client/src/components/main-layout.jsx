@@ -44,7 +44,7 @@ function Header() {
 
                         <NavDropdown title="프로젝트" id="basic-nav-dropdown">
                             <NavDropdown.Item>
-                                <Link to="project/manipulate">
+                                <Link to="project/management">
                                     프로젝트 관리
                                 </Link>
                             </NavDropdown.Item>
@@ -58,7 +58,7 @@ function Header() {
                                 휴가신청
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <Link to="project/manipulate">
+                                <Link to="vacation/management">
                                     휴가관리
                                 </Link>
                             </NavDropdown.Item>

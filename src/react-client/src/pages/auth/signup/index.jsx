@@ -27,6 +27,7 @@ const Signup = () => {
                                 placeholder="아이디 입력"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
+                                className="mt-5"
                             />
                         </Form.Group>
 

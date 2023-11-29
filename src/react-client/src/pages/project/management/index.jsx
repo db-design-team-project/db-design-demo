@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ProjectManipulate = () => {
+const ProjectManagement = () => {
   return (
     <div>ProjectManipulate page</div>
   )
 }
 
-export default ProjectManipulate
+export default ProjectManagement;

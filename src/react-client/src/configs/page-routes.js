@@ -1,10 +1,9 @@
 import React, { lazy } from 'react';
 import Login from '../pages/auth/login';
 import Signup from '../pages/auth/signup';
-import { Vacation } from '../pages/휴가내역';
 import { Client } from '../pages/Client';
-import ProjectManipulate from '../pages/프로젝트/프로젝트 관리';
-import VacationManipulate from '../pages/휴가/휴가관리';
+import ProjectManagement from '../pages/project/management/index';
+import VacationManagement from '../pages/vacation/management/index';
 
 const Home = lazy(() => import('../pages/home/index'));
 const Test = lazy(() => import('../pages/test/index'));
@@ -27,23 +26,18 @@ const pageRoutes = [
     isPrivate: false
   },
   {
-    path: '/project/manipulate',
-    element: <ProjectManipulate />,
+    path: '/project/management',
+    element: <ProjectManagement />,
     isPrivate: false
   },
   {
-    path: '/vacation/manipulate',
-    element: <VacationManipulate />,
+    path: '/vacation/management',
+    element: <VacationManagement />,
     isPrivate: false
   },
   {
     path: '/client',
     element: <Client />,
-    isPrivate: false
-  },
-  {
-    path: '/vacation',
-    element: <Vacation />,
     isPrivate: false
   },
   {
