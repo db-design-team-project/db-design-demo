@@ -17,7 +17,7 @@ export default function NotFound() {
   return <>
     {!!onNotFoundPath === true && (
       <p>
-        Not Found Page
+        존재하지 않는 페이지입니다...
       </p>
     )}
   </>

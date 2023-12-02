@@ -37,23 +37,23 @@ function Header({ authenticated }) {
 
                         <NavDropdown title="직원" id="basic-nav-dropdown"
                             className='m'>
-                            <NavDropdown.Item href="#action/3.1">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 직원관리
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 직원휴가
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item as={Link} to="notfound">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 휴가페이지2
                             </NavDropdown.Item>
                         </NavDropdown>
 
                         <NavDropdown title="부서" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 부서관리
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 부서지원금
                             </NavDropdown.Item>
                         </NavDropdown>
@@ -63,13 +63,13 @@ function Header({ authenticated }) {
                             <NavDropdown.Item as={Link} to="project/management" className='text-decoration-none text-reset'>
                                 프로젝트 관리
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="">
+                            <NavDropdown.Item as={Link} to="">
                                 평가 관리
                             </NavDropdown.Item>
                         </NavDropdown>
 
                         <NavDropdown title="휴가" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 휴가신청
                             </NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="vacation/management" className='text-decoration-none text-reset'>
