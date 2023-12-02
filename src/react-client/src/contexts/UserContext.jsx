@@ -28,6 +28,7 @@ export function UserProvider({ children }) {
                         authenticated: json.authenticated,
                         username: json.ID
                     });
+                    navigate("/");
                 }
                 else 
                     navigate("/auth/login");

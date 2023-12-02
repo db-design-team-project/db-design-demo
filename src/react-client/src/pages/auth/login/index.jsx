@@ -25,8 +25,7 @@ const Login = () => {
       .then(response => response.json())
       .then(json => {
         console.log(json.message);
-        navigate("/");
-
+        window.location.reload();
       }) 
       .catch(error => console.log(error));
   };

@@ -1,17 +1,18 @@
 
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Server.DbContexts;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestController : ControllerBase {
+public class MainController : ControllerBase {
     private readonly ILogger _logger;
     private readonly MainDbContext _dbContext;
 
 
-    public TestController(
-        ILogger<TestController> logger,
+    public MainController(
+        ILogger<MainController> logger,
         MainDbContext dbContext
     ) {
         _logger = logger;
@@ -20,7 +21,9 @@ public class TestController : ControllerBase {
 
     [HttpGet("test")]
     public ActionResult MailAsync() {
-        var entities = _dbContext.휴가내역DbSet.FromSqlRaw("SELECT * FROM 휴가내역");
+        var entities = _dbContext.직원DbSet.FromSqlRaw($"SELECT 회원ID FROM 회원 WHERE 회원ID = ");
+        
+        JsonSerializer.Serialize(entities);
 
         return Ok(entities);
     }

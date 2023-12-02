@@ -5,11 +5,11 @@ import AuthRoutes from "./lib/auth-routes";
 function App() {
   return (
     <>
-      <MainLayout>
-        <UserProvider>
+      <UserProvider>
+        <MainLayout>
           <AuthRoutes />
-        </UserProvider>
-      </MainLayout>
+        </MainLayout>
+      </UserProvider>
     </>
   );
 }

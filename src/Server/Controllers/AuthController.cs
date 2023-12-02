@@ -14,7 +14,7 @@ public class AuthController : ControllerBase {
     private readonly MainDbContext _dbContext;
 
     public AuthController(
-        ILogger<TestController> logger,
+        ILogger<AuthController> logger,
         MainDbContext dbContext
     ) {
         _logger = logger;
@@ -57,6 +57,12 @@ public class AuthController : ControllerBase {
     // public ActionResult Signup() {
     //     return Ok();
     // }
+
+    [HttpGet("logout")]
+    public async Task<IActionResult> LogoutAsync() {
+        await HttpContext.SignOutAsync();
+        return Ok();
+    }
 
     [HttpGet("authenticate")]
     public async Task<IActionResult> AuthenticateAsync() {

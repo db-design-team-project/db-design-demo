@@ -11,14 +11,12 @@ export default function AuthRoutes() {
             <Routes>
                 {
                     pageRoutes.map((route, idx) => {
-                        const { element, path, isPrivate, index } = route;
+                        const { isPrivate } = route;
 
-                        if (isPrivate === false || user.authenticated === true) {
-                            if (index !== undefined)
-                                return <Route key={idx} index element={element} />
-                            else
-                                return (<Route key={idx} path={path} element={element} />)
-                        }
+                        if (isPrivate === false || user.authenticated === true) 
+                            return <Route key={idx} {...route} />
+                        else
+                            return null
                     })
                 }
             </Routes>
