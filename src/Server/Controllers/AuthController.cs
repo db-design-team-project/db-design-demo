@@ -33,7 +33,7 @@ public class AuthController : ControllerBase {
             }));
 
         // TODO: DB 조회해서 유요한 id/password 인지 확인
-        var results = _dbContext.회원DbSet.FromSqlInterpolated($"SELECT * FROM 회원 WHERE 아이디 = {ID} AND 비밀번호 = {123}");
+        var results = _dbContext.회원DbSet.FromSqlInterpolated($"SELECT * FROM 회원 WHERE 아이디 = {ID} AND 비밀번호 = {password}");
         if (results is null)
             return BadRequest(JsonSerializer.Serialize(new {
                 message = "유효한 아이디, 패스워드가 아닙니다..."
@@ -57,4 +57,12 @@ public class AuthController : ControllerBase {
     // public ActionResult Signup() {
     //     return Ok();
     // }
+
+    [HttpGet("authenticate")]
+    public async Task<IActionResult> AuthenticateAsync() {
+        return Ok(JsonSerializer.Serialize(new {
+            authenticated = (await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme)).Succeeded,
+            ID = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier),
+        }));
+    }
 }

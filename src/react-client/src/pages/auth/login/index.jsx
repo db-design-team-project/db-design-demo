@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import ENDPOINTS from '../../../lib/api-endpoints';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [ID, setID] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     console.log('Login clicked');
@@ -14,14 +16,18 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json"
       },
+      credentials: 'include',
       body: JSON.stringify({
         ID,
         password
     })
     })
-      .then(responseFromServer => {
-        console.log(responseFromServer.status);
-      })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json.message);
+        navigate("/");
+
+      }) 
       .catch(error => console.log(error));
   };
 

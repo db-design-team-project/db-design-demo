@@ -6,14 +6,13 @@ import ProjectManagement from '../pages/project/management/index';
 import VacationManagement from '../pages/vacation/management/index';
 
 const Home = lazy(() => import('../pages/home/index'));
-const Test = lazy(() => import('../pages/test/index'));
 const NotFound = lazy(() => import('../pages/not-found/index'));
 
 const pageRoutes = [
   {
     index: true,
     element: <Home />,
-    isPrivate: false
+    isPrivate: true
   },
   {
     path: '/auth/login',
@@ -28,22 +27,17 @@ const pageRoutes = [
   {
     path: '/project/management',
     element: <ProjectManagement />,
-    isPrivate: false
+    isPrivate: true
   },
   {
     path: '/vacation/management',
     element: <VacationManagement />,
-    isPrivate: false
+    isPrivate: true
   },
   {
     path: '/client',
     element: <Client />,
-    isPrivate: false
-  },
-  {
-    path: '/test',
-    element: <Test />,
-    isPrivate: false
+    isPrivate: true
   },
   {
     path: '/notfound',
