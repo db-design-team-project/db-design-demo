@@ -6,8 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication().AddCookie();
+
 builder.Services.AddDbContext<MainDbContext>(option => {
     option.UseOracle(builder.Configuration["MainDbConnectionString"]!);
 });
@@ -33,8 +38,7 @@ if (app.Environment.IsDevelopment()) {
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
+app.UseAuthentication();
 // app.UseAuthorization();
 
 app.MapControllers();

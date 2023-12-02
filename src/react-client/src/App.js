@@ -1,5 +1,5 @@
 import MainLayout from "./components/main-layout";
-import AuthRoutes from "./utils/auth-routes";
+import AuthRoutes from "./lib/auth-routes";
 
 function App() {
   return (

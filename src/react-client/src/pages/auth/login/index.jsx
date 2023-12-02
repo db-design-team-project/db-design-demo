@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import ENDPOINTS from '../../../lib/api-endpoints';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [ID, setID] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Add your login logic here
     console.log('Login clicked');
 
-    
+    fetch(ENDPOINTS.POST_API_AUTH_LOGIN, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        ID,
+        password
+    })
+    })
+      .then(responseFromServer => {
+        console.log(responseFromServer.status);
+      })
+      .catch(error => console.log(error));
   };
 
   return (
@@ -20,10 +33,10 @@ const Login = () => {
             <Form.Group controlId="formBasicEmail">
               <Form.Label>아이디</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="아이디 입력"
+                value={ID}
+                onChange={(e) => setID(e.target.value)}
               />
             </Form.Group>
 
@@ -31,7 +44,7 @@ const Login = () => {
               <Form.Label>비밀번호</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Password"
+                placeholder="비밀번호 입력"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
