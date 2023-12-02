@@ -12,13 +12,23 @@ builder.Services.AddDbContext<MainDbContext>(option => {
     option.UseOracle(builder.Configuration["MainDbConnectionString"]!);
 });
 
+builder.Services.AddCors(corsOpts => {
+    corsOpts.AddDefaultPolicy(b => {
+        b.WithOrigins(builder.Configuration["ClientUrls:ReactUrl"]!)
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
+
 var app = builder.Build();
 
+app.UseHttpsRedirection();
 
+app.UseCors();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
