@@ -5,6 +5,15 @@ import ENDPOINTS from '../../../lib/api-endpoints';
 
 const VacationManagement = () => {
   const [selectedDate, setSelectedDate] = useState('');
+  const [data, setData] = useState([{
+    휴가ID: 1,
+    직원ID: 1,
+    직원명: "홍길동",
+    휴가종류: "연가",
+    휴가시작날짜: "1999-05-11",
+    휴가종료날짜: "1999-05-15",
+    업무대리인ID: 2
+  }]);
 
   function handleSubmit() {
     console.log(selectedDate);
@@ -12,10 +21,16 @@ const VacationManagement = () => {
     fetch(`${ENDPOINTS.GET_API_MAIN_VACATION_HISTORY_EMPLOYEE}?date=${selectedDate}`, {
       method: 'GET'
     })
-    .then((response) => {
-
-    })
-    .catch(error => console.log(error));
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then(json => {
+        console.log(json);
+        setData(json)
+      })
+      .catch(error => console.log(error));
   }
 
   return (
@@ -32,6 +47,7 @@ const VacationManagement = () => {
             <th>#</th>
             <th>휴가ID</th>
             <th>직원ID</th>
+            <th>직원명</th>
             <th>휴가종류</th>
             <th>휴가시작날짜</th>
             <th>휴가종료날짜</th>
@@ -39,33 +55,20 @@ const VacationManagement = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>50000</td>
-            <td>1</td>
-            <td>연가</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>50001</td>
-            <td>22</td>
-            <td>연가</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>23</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>50002</td>
-            <td>97</td>
-            <td>반가</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>98</td>
-          </tr>
+          {
+            data.length > 0 && data.map((r, idx) => (
+              <tr>
+                <td>{idx + 1}</td>
+                <td>{r.휴가ID}</td>
+                <td>{r.직원ID}</td>
+                <td>{r.직원명}</td>
+                <td>{r.휴가종류}</td>
+                <td>{r.휴가시작날짜}</td>
+                <td>{r.휴가종료날짜}</td>
+                <td>{r.업무대리인ID}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </Table>
     </>
