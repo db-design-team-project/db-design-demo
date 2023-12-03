@@ -13,7 +13,8 @@ export default function NotFound() {
   useEffect(() => {
     if (!!onNotFoundPath === false) {
       if (!!user.authenticated === false) 
-        navigate("/auth/login");
+        navigate("/");
+        // navigate("/auth/login");
       else
         navigate("/");
     }

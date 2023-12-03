@@ -9,11 +9,11 @@ const VacationManagement = () => {
   return (
     <Container>
       
-      <div class="m-2"> 
-        <input type="date" class="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
+      <div className="m-2"> 
+        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
         ~
-        <input type="date" class="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
-        <button type="button" class="btn btn-light">검색</button>
+        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
+        <button type="button" className="btn btn-light">검색</button>
       </div>
 
       <div>

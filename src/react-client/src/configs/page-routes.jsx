@@ -11,7 +11,7 @@ const pageRoutes = [
   {
     index: true,
     element: <Home />,
-    isPrivate: true
+    isPrivate: false
   },
   {
     path: '/auth/login',
