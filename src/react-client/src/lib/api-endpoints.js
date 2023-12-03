@@ -8,6 +8,8 @@ const ENDPOINTS = {
   GET_API_AUTH_LOGOUT: `${API_BASE_URL}/api/auth/logout/`,
   POST_API_AUTH_SIGNUP: `${API_BASE_URL}/api/auth/signup/`,
   GET_API_AUTH_AUTHENTICATE: `${API_BASE_URL}/api/auth/authenticate/`,
+
+  GET_API_MAIN_VACATION_HISTORY_EMPLOYEE: `${API_BASE_URL}/api/main/vacation-history-employee`,
 };
 
 export default ENDPOINTS;

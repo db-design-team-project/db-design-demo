@@ -11,7 +11,7 @@ export default function NotFound() {
       <div>
         <Image width="450" src="https://www.mju.ac.kr/sites//mjukr/images/main/logo_wh.png" />
       </div>
-      <p className="mt-4 text-break lh-base text-start" style={{
+      <p className="mt-5 text-break lh-base text-start" style={{
         fontFamily: "Noto Sans KR Variable, sans-serif"
       }}>
         <span className="fs-5">

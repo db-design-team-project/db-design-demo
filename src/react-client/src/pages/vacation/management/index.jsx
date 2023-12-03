@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
 import { Form, Container, button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
+import ENDPOINTS from '../../../lib/api-endpoints';
 
 const VacationManagement = () => {
   const [selectedDate, setSelectedDate] = useState('');
 
-  function handleDate(e) {
-    console.log(e.target.value);
-    setSelectedDate(e.target.value);
+  function handleSubmit() {
+    console.log(selectedDate);
+
+    fetch(`${ENDPOINTS.GET_API_MAIN_VACATION_HISTORY_EMPLOYEE}?date=${selectedDate}`, {
+      method: 'GET'
+    })
+    .then((response) => {
+
+    })
+    .catch(error => console.log(error));
   }
 
   return (
     <>
       <div className="m-2">
         <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"
-          onChange={handleDate} />
-        <button type="button" className="btn btn-light">검색</button>
+          onChange={(e) => setSelectedDate(e.target.value)} />
+        <button type="button" className="btn btn-light" onClick={handleSubmit}>검색</button>
       </div>
 
       <Table striped bordered hover>

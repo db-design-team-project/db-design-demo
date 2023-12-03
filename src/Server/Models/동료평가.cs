@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 [PrimaryKey(nameof(평가ID), nameof(평가자직원ID))]
+[Table("동료평가")]
 public class 동료평가 {
     public int 평가ID { get; set; }
     [ForeignKey("직원")]

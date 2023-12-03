@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 [PrimaryKey(nameof(프로젝트ID), nameof(직원ID))]
+[Table("개발자경험")]
 public class 개발자경험 {
     public int 프로젝트ID { get; set; }
     public int 직원ID { get; set; }

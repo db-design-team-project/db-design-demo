@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Models;
 
+[Table("회원")]
 public class 회원
 {
     [Key]

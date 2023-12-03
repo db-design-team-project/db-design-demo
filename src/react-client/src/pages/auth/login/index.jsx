@@ -25,19 +25,20 @@ const Login = () => {
         password
       })
     })
-      .then(response => response.json())
-      .then(json => {
-        if (json.authenticated) {
-          console.log(json.message);
+      .then(response => {
+        if (response.ok) {
           setUser({
-            authenticated: json.authenticated,
-            ID: json.ID
+            authenticated: true,
+            ID
           });
           navigate("/");
         }
-        else {
-          setErrMsg(json.message);
-        }
+        else 
+          return response.json();
+      })
+      .then(json => {
+        console.log(json.message)
+        setErrMsg(json.message);
       })
       .catch(error => console.log(error));
   };

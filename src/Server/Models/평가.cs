@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("평가")]
 public class 평가 {
     [Key]
     public int 평가ID { get; set; }

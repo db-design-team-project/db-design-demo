@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("직원급여")]
 public class 직원급여 {
     [Key]
     public int 직원급여ID { get; set; }

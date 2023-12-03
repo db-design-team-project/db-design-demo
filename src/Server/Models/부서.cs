@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("부서")]
 public class 부서 {
     [Key]
     [StringLength(30)]

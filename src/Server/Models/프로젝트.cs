@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("프로젝트")]
 public class 프로젝트 {
     [Key]
     public int 프로젝트ID { get; set; }
