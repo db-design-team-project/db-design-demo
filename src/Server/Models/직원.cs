@@ -20,11 +20,10 @@ public class 직원 {
     public string 최종학력 { get; set; }
 
     [StringLength(30)]
-    [NotMapped]
     public string? 부서 { get; set; }
 
 
     [ForeignKey("부서")]
-    public 부서 직원부서 { get; set; }
+    public 부서? 직원부서 { get; set; }
     public ICollection<투입직원> 직원투입 { get; set; }
 }

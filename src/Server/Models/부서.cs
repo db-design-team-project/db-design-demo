@@ -16,8 +16,9 @@ public class 부서 {
     public string 부서위치 { get; set; }
 
     [Required]
+    [ForeignKey("직원")]
     public int 부서장 { get; set; }
 
-    [ForeignKey(nameof(부서장))]
+    [ForeignKey("부서장")]
     public 직원 부서장직원 { get; set; }
 }
