@@ -82,7 +82,7 @@ function Header() {
                     </Nav>
 
                     <Nav className="ml-auto">
-                        
+
                         {!!user.authenticated ?
                             (
                                 <>
@@ -107,11 +107,23 @@ export default function MainLayout(props) {
     return (
         <>
             <Header />
-            <div className="m-0 p-0 min-vh-100">
+            <div className='position-fixed'
+                style={{
+                    backgroundImage: `url('https://www.mju.ac.kr/sites/mjukr/intro/images/logo.png')`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '85vh',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    zIndex: -1,
+                }}></div>
+            <div className="m-0 p-0 z-1">
                 <Container fluid="md" className='p-3 text-center'>
                     {props.children}
                 </Container>
-            </div>
+            </div >
         </>
     )
 }
