@@ -27,7 +27,7 @@ const SearchProjects = () => {
   return (
     <>
       <div className="m-2">
-        <input type="text" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"
+        <input type="text" className="m-2" placeholder="발주처" aria-label="Username" aria-describedby="basic-addon1"
           onChange={(e) => setSearchQuery(e.target.value)} />
         <button type="button" className="btn btn-light">검색</button>
       </div>

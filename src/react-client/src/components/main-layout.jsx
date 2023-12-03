@@ -82,10 +82,11 @@ function Header() {
                     </Nav>
 
                     <Nav className="ml-auto">
+                        
                         {!!user.authenticated ?
                             (
                                 <>
-                                    <Avatar color={"green"} size="40" name={user.ID} round={true} />
+                                    <Avatar src='https://www.mju.ac.kr/sites/mjukr/images/main/btn_chat_over1.png' color={"green"} size="40" name={user.ID} round={true} />
                                     <Nav.Link as={Link} to="/auth/login" onClick={handleLogout}>로그아웃</Nav.Link>
                                 </>
                             )
@@ -105,7 +106,7 @@ function Header() {
 export default function MainLayout(props) {
     return (
         <>
-            <Header/>
+            <Header />
             <div className="m-0 p-0 min-vh-100">
                 <Container fluid="md" className='p-3 text-center'>
                     {props.children}
