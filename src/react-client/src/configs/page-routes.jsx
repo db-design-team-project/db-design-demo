@@ -3,7 +3,6 @@ import Home from '../pages/home/index';
 import NotFound from '../pages/not-found/index';
 import Login from '../pages/auth/login/index';
 import Signup from '../pages/auth/signup/index';
-import Client from '../pages/Client/index';
 import ProjectManagement from '../pages/project/management/index';
 import VacationManagement from '../pages/vacation/management/index';
 
@@ -31,11 +30,6 @@ const pageRoutes = [
   {
     path: '/vacation/management',
     element: <VacationManagement />,
-    isPrivate: true
-  },
-  {
-    path: '/client',
-    element: <Client />,
     isPrivate: true
   },
   {

@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import { Form,Container, button } from "react-bootstrap";
+import { Form, Container, button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 
 const VacationManagement = () => {
 
-
-
   return (
     <Container>
-      
-      <div className="m-2"> 
-        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
-        ~
-        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
+      <div className="m-2">
+        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1" />
         <button type="button" className="btn btn-light">검색</button>
       </div>
 
@@ -49,7 +44,7 @@ const VacationManagement = () => {
               <td>23</td>
             </tr>
             <tr>
-              <td>2</td>
+              <td>3</td>
               <td>50002</td>
               <td>97</td>
               <td>반가</td>
@@ -59,7 +54,7 @@ const VacationManagement = () => {
             </tr>
           </tbody>
         </Table>
-        
+
       </div>
     </Container>
   );
