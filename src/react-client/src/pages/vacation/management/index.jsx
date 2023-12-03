@@ -3,11 +3,18 @@ import { Form, Container, button } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 
 const VacationManagement = () => {
+  const [selectedDate, setSelectedDate] = useState('');
+
+  function handleDate(e) {
+    console.log(e.target.value);
+    setSelectedDate(e.target.value);
+  }
 
   return (
     <Container>
       <div className="m-2">
-        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1" />
+        <input type="date" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"
+          onChange={handleDate} />
         <button type="button" className="btn btn-light">검색</button>
       </div>
 
