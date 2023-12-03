@@ -10,9 +10,7 @@ const VacationManagement = () => {
     <Container>
       
       <div class="m-2"> 
-        <input type="date" class="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
-        ~
-        <input type="date" class="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
+       <input type="date" class="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"/>
         <button type="button" class="btn btn-light">검색</button>
       </div>
 
@@ -49,7 +47,7 @@ const VacationManagement = () => {
               <td>23</td>
             </tr>
             <tr>
-              <td>2</td>
+              <td>3</td>
               <td>50002</td>
               <td>97</td>
               <td>반가</td>
