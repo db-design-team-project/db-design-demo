@@ -34,7 +34,7 @@ public class AuthController : ControllerBase {
 
         // TODO: DB 조회해서 유요한 id/password 인지 확인
         var results = _dbContext.회원DbSet.FromSqlInterpolated($"SELECT * FROM 회원 WHERE 아이디 = {ID} AND 비밀번호 = {password} FETCH FIRST 1 ROW ONLY");
-        var found = results.ToList().Count > 0;
+        var found = results.Any();
         if (!found) {
             return BadRequest(JsonSerializer.Serialize(new {
                 message = "유효한 아이디, 패스워드가 아닙니다..."
@@ -57,10 +57,23 @@ public class AuthController : ControllerBase {
         }));
     }
 
-    // [HttpPost("signup")]
-    // public ActionResult Signup() {
-    //     return Ok();
-    // }
+    [HttpPost("signup")]
+    public async Task<IActionResult> SignupAsync(JsonElement json) {
+        string ID = json.GetString("ID") ?? string.Empty;
+        string password = json.GetString("password") ?? string.Empty;
+        string fullName = json.GetString("fullName") ?? string.Empty;
+        string residentNumber = json.GetString("residentNumber") ?? string.Empty;
+        string education = json.GetString("education") ?? string.Empty;
+
+        // var newEmployee = new 직원 {
+        //     직원명 = fullName,
+        //     주민등록번호 = residentNumber,
+        //     최종학력 = education,
+        //     부서 = null
+        // };
+
+        return Ok();
+    }
 
     [HttpGet("logout")]
     public async Task<IActionResult> LogoutAsync() {
