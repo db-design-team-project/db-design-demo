@@ -25,54 +25,37 @@ const SearchProjects = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          {/* 검색창 */}
-          <Form>
-            <Form.Group controlId="searchForm">
-              <Form.Control
-                type="text"
-                placeholder="발주처명 또는 발주처ID로 검색"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)
-                }
-              />
-            </Form.Group>
-            <Form.Group>
-              <Button variant="primary" onClick={handleSearch}>
-                검색
-              </Button>
-            </Form.Group>
-          </Form>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {/* 프로젝트 목록 테이블 */}
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>프로젝트ID</th>
-                <th>프로젝트명</th>
-                <th>시작일자</th>
-                <th>종료일자</th>
+    <>
+      <div className="m-2">
+        <input type="text" className="m-2" placeholder="date" aria-label="Username" aria-describedby="basic-addon1"
+          onChange={(e) => setSearchQuery(e.target.value)} />
+        <button type="button" className="btn btn-light">검색</button>
+      </div>
+
+      <div>
+        {/* 프로젝트 목록 테이블 */}
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>프로젝트ID</th>
+              <th>프로젝트명</th>
+              <th>시작일자</th>
+              <th>종료일자</th>
+            </tr>
+          </thead>
+          <tbody>
+            {projectData.map((project) => (
+              <tr key={project.projectId}>
+                <td>{project.projectId}</td>
+                <td>{project.projectName}</td>
+                <td>{project.startDate}</td>
+                <td>{project.endDate}</td>
               </tr>
-            </thead>
-            <tbody>
-              {projectData.map((project) => (
-                <tr key={project.projectId}>
-                  <td>{project.projectId}</td>
-                  <td>{project.projectName}</td>
-                  <td>{project.startDate}</td>
-                  <td>{project.endDate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Col>
-      </Row>
-    </Container>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+    </>
   );
 };
 
