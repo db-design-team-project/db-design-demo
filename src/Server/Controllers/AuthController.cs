@@ -33,11 +33,13 @@ public class AuthController : ControllerBase {
             }));
 
         // TODO: DB 조회해서 유요한 id/password 인지 확인
-        var results = _dbContext.회원DbSet.FromSqlInterpolated($"SELECT * FROM 회원 WHERE 아이디 = {ID} AND 비밀번호 = {password}");
-        if (results is null)
+        var results = _dbContext.회원DbSet.FromSqlInterpolated($"SELECT * FROM 회원 WHERE 아이디 = {ID} AND 비밀번호 = {password} FETCH FIRST 1 ROW ONLY");
+        var found = results.ToList().Count > 0;
+        if (!found) {
             return BadRequest(JsonSerializer.Serialize(new {
                 message = "유효한 아이디, 패스워드가 아닙니다..."
             }));
+        }
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(
             new ClaimsIdentity(

@@ -9,6 +9,7 @@ const Login = () => {
   const [ID, setID] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errMsg, setErrMsg] = useState("");
 
   const handleLogin = () => {
     console.log('Login clicked');
@@ -26,12 +27,17 @@ const Login = () => {
     })
       .then(response => response.json())
       .then(json => {
-        console.log(json.message);
-        setUser({
-          authenticated: json.authenticated,
-          ID: json.ID
-        });
-        navigate("/");
+        if (json.authenticated) {
+          console.log(json.message);
+          setUser({
+            authenticated: json.authenticated,
+            ID: json.ID
+          });
+          navigate("/");
+        }
+        else {
+          setErrMsg(json.message);
+        }
       })
       .catch(error => console.log(error));
   };
@@ -51,7 +57,7 @@ const Login = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="formBasicPassword" className='mt-3'>
               <Form.Label>비밀번호</Form.Label>
               <Form.Control
                 type="password"
@@ -61,9 +67,13 @@ const Login = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="button" onClick={handleLogin}>
+            <Button variant="primary" type="button" onClick={handleLogin} className='mt-3'>
               로그인
             </Button>
+
+            <p className='mt-3 text-danger'>
+              {errMsg}
+            </p>
           </Form>
         </Col>
       </Row>
