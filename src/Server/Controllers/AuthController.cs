@@ -49,7 +49,9 @@ public class AuthController : ControllerBase {
         ));
 
         return Ok(JsonSerializer.Serialize(new {
-            message = "로그인 성공!"
+            message = "로그인 성공!",
+            authenticated = true,
+            ID = ID,
         }));
     }
 

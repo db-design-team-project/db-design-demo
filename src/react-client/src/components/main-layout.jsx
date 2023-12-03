@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,8 +8,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import ENDPOINTS from '../lib/api-endpoints';
+import Avatar from 'react-avatar';
 
-function Header({ authenticated }) {
+function Header() {
+    const { user } = useContext(UserContext);
+
     function handleLogout() {
         fetch(ENDPOINTS.GET_API_AUTH_LOGOUT, {
             method: 'GET',
@@ -79,9 +82,12 @@ function Header({ authenticated }) {
                     </Nav>
 
                     <Nav className="ml-auto">
-                        {!!authenticated ?
+                        {!!user.authenticated ?
                             (
-                                <Nav.Link as={Link} to="/auth/login" onClick={handleLogout}>로그아웃</Nav.Link>
+                                <>
+                                    <Avatar color={"green"} size="40" name={user.ID} round={true} />
+                                    <Nav.Link as={Link} to="/auth/login" onClick={handleLogout}>로그아웃</Nav.Link>
+                                </>
                             )
                             : (
                                 <>
@@ -97,11 +103,9 @@ function Header({ authenticated }) {
 }
 
 export default function MainLayout(props) {
-    const { user } = useContext(UserContext);
-
     return (
         <>
-            <Header {...user} />
+            <Header/>
             <div className="m-0 p-0 min-vh-100">
                 <Container fluid="md" className='p-3 text-center'>
                     {props.children}

@@ -26,9 +26,8 @@ export function UserProvider({ children }) {
                 if (json.authenticated) {
                     setUser({
                         authenticated: json.authenticated,
-                        username: json.ID
+                        ID: json.ID
                     });
-                    navigate("/");
                 }
                 else 
                     navigate("/auth/login");

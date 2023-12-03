@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import ENDPOINTS from '../../../lib/api-endpoints';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../contexts/UserContext';
 
 const Login = () => {
+  const { user, setUser } = useContext(UserContext);
   const [ID, setID] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -20,13 +22,17 @@ const Login = () => {
       body: JSON.stringify({
         ID,
         password
-    })
+      })
     })
       .then(response => response.json())
       .then(json => {
         console.log(json.message);
-        window.location.reload();
-      }) 
+        setUser({
+          authenticated: json.authenticated,
+          ID: json.ID
+        });
+        navigate("/");
+      })
       .catch(error => console.log(error));
   };
 
