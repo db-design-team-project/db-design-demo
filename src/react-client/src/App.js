@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import MainLayout from "./components/main-layout";
 import { UserProvider } from "./contexts/UserContext";
 import AuthRoutes from "./lib/auth-routes";
@@ -5,11 +6,13 @@ import AuthRoutes from "./lib/auth-routes";
 function App() {
   return (
     <>
-      <UserProvider>
-        <MainLayout>
-          <AuthRoutes />
-        </MainLayout>
-      </UserProvider>
+      <BrowserRouter>
+        <UserProvider>
+          <MainLayout>
+            <AuthRoutes />
+          </MainLayout>
+        </UserProvider>
+      </BrowserRouter>
     </>
   );
 }

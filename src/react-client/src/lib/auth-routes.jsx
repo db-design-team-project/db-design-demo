@@ -15,8 +15,6 @@ export default function AuthRoutes() {
 
                         if (isPrivate === false || user.authenticated === true) 
                             return <Route key={idx} {...route} />
-                        else
-                            return null
                     })
                 }
             </Routes>

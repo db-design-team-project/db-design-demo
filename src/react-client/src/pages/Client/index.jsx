@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Client = () => {
+const Client = () => {
     return (
         <div>client page</div>
     )
 }
+
+export default Client;

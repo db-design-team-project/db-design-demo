@@ -1,12 +1,11 @@
 import React, { lazy } from 'react';
-import Login from '../pages/auth/login';
-import Signup from '../pages/auth/signup';
-import { Client } from '../pages/Client';
+import Home from '../pages/home/index';
+import NotFound from '../pages/not-found/index';
+import Login from '../pages/auth/login/index';
+import Signup from '../pages/auth/signup/index';
+import Client from '../pages/Client/index';
 import ProjectManagement from '../pages/project/management/index';
 import VacationManagement from '../pages/vacation/management/index';
-
-const Home = lazy(() => import('../pages/home/index'));
-const NotFound = lazy(() => import('../pages/not-found/index'));
 
 const pageRoutes = [
   {

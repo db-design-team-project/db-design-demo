@@ -63,7 +63,7 @@ function Header({ authenticated }) {
                             <NavDropdown.Item as={Link} to="project/management" className='text-decoration-none text-reset'>
                                 프로젝트 관리
                             </NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="">
+                            <NavDropdown.Item as={Link} to="/notfound">
                                 평가 관리
                             </NavDropdown.Item>
                         </NavDropdown>
