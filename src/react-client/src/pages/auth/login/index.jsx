@@ -40,7 +40,10 @@ const Login = () => {
         console.log(json.message)
         setErrMsg(json.message);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        setErrMsg(error);
+        console.log(error);
+      });
   };
 
   return (

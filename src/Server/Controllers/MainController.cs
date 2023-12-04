@@ -42,4 +42,11 @@ public class MainController : ControllerBase {
 
         return Ok(JsonSerializer.Serialize(entities));
     }
+
+    [HttpGet("client-history")]
+    public ActionResult ClientHistory(string clientName) {
+        System.Console.WriteLine(clientName);
+        
+        return Ok();
+    }
 }

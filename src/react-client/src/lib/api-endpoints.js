@@ -10,6 +10,7 @@ const ENDPOINTS = {
   GET_API_AUTH_AUTHENTICATE: `${API_BASE_URL}/api/auth/authenticate/`,
 
   GET_API_MAIN_VACATION_HISTORY_EMPLOYEE: `${API_BASE_URL}/api/main/vacation-history-employee`,
+  GET_API_MAIN_CLIENT_HISTORY: `${API_BASE_URL}/api/main/client-history`,
 };
 
 export default ENDPOINTS;
