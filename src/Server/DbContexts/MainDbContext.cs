@@ -23,9 +23,12 @@ namespace Server.DbContexts {
         public DbSet<PM평가> PM평가DbSet { get; set; }
         public DbSet<직원급여> 직원급여DbSet { get; set; }
         public DbSet<휴가내역> 휴가내역DbSet { get; set; }
+        public DbSet<발주처_프로젝트> 발주처_프로젝트DbSet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<발주처_프로젝트>().HasNoKey();
         }
     }
 }

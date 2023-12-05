@@ -5,13 +5,14 @@ import ENDPOINTS from '../../../lib/api-endpoints';
 const SearchProjects = () => {
   const [clientName, setClientName] = useState('');
   const [data, setData] = useState([
-    { projectId: 1, projectName: '프로젝트 A', startDate: '2023-01-01', endDate: '2023-02-01' },
-    { projectId: 2, projectName: '프로젝트 B', startDate: '2023-02-01', endDate: '2023-03-01' },
-    { projectId: 3, projectName: '프로젝트 C', startDate: '2023-01-01', endDate: '2023-02-01' }
+    { 프로젝트ID: 1, 프로젝트명: '프로젝트 A', 착수일자: '2023-01-01', 종료일자: '2023-02-01' },
+    { 프로젝트ID: 2, 프로젝트명: '프로젝트 B', 착수일자: '2023-02-01', 종료일자: '2023-03-01' },
+    { 프로젝트ID: 3, 프로젝트명: '프로젝트 C', 착수일자: '2023-01-01', 종료일자: '2023-02-01' }
   ]);
 
   // 검색어를 받아와 검색을 수행하는 함수
-  function handleSearch() {
+  function handleSearch(e) {
+    e.preventDefault();
     console.log(clientName);
 
     fetch(`${ENDPOINTS.GET_API_MAIN_CLIENT_HISTORY}?clientName=${clientName}`, {
@@ -34,11 +35,11 @@ const SearchProjects = () => {
 
   return (
     <>
-      <div className="m-2 d-flex justify-content-center align-content-center">
+      <form className="m-2 d-flex justify-content-center align-content-center" onSubmit={handleSearch}>
         <input type="text" className="m-2" placeholder="발주처명 입력" aria-label="Username" aria-describedby="basic-addon1"
           onChange={(e) => setClientName(e.target.value)} />
         <button type="button" className="btn btn-light" onClick={handleSearch}>검색</button>
-      </div>
+      </form>
 
       <div>
         {/* 프로젝트 목록 테이블 */}
@@ -48,7 +49,7 @@ const SearchProjects = () => {
               <th>#</th>
               <th>프로젝트ID</th>
               <th>프로젝트명</th>
-              <th>시작일자</th>
+              <th>착수일자</th>
               <th>종료일자</th>
             </tr>
           </thead>
@@ -56,10 +57,10 @@ const SearchProjects = () => {
             {data.map((project, idx) => (
               <tr key={idx + 1}>
                 <td>{idx + 1}</td>
-                <td>{project.projectId}</td>
-                <td>{project.projectName}</td>
-                <td>{project.startDate}</td>
-                <td>{project.endDate}</td>
+                <td>{project.프로젝트ID}</td>
+                <td>{project.프로젝트명}</td>
+                <td>{project.착수일자}</td>
+                <td>{project.종료일자}</td>
               </tr>
             ))}
           </tbody>
