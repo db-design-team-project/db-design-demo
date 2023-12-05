@@ -73,6 +73,7 @@ const VacationManagement = () => {
             <th>휴가시작날짜</th>
             <th>휴가종료날짜</th>
             <th>업무대리인ID</th>
+            <th>업무대리인 이름</th>
           </tr>
         </thead>
         <tbody>
@@ -87,6 +88,7 @@ const VacationManagement = () => {
                 <td>{r.휴가시작날짜}</td>
                 <td>{r.휴가종료날짜}</td>
                 <td>{r.업무대리인ID}</td>
+                <td>{r.업무대리인이름}</td>
               </tr>
             ))
           }
